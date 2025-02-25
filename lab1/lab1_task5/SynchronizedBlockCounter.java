@@ -1,23 +1,25 @@
 package lab1.lab1_task5;
 
 class SynchronizedBlockCounter extends Counter {
+  private final Object lock = new Object();
+  
   @Override
   public void increment() {
-      synchronized(this) {
+      synchronized(lock) {
           count++;
       }
   }
   
   @Override
   public void decrement() {
-      synchronized(this) {
+      synchronized(lock) {
           count--;
       }
   }
   
   @Override
   public int getValue() {
-      synchronized(this) {
+      synchronized(lock) {
           return count;
       }
   }

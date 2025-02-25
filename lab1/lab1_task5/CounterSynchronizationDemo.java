@@ -15,7 +15,7 @@ public class CounterSynchronizationDemo {
         testCounter(counter2);
         
         System.out.println("\n=== Testing object lock ===");
-        Counter counter3 = new ObjectLockCounter();
+        Counter counter3 = new ReentrantLockCounter();
         testCounter(counter3);
     }
     
