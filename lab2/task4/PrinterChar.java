@@ -1,22 +1,18 @@
 package lab2.task4;
 
-class CharacterPrinter implements Runnable {
-    private final StringBuilder sharedString;
+class PrinterChar implements Runnable {
     private final char character;
     private final int repetitions;
-    
-    public CharacterPrinter(StringBuilder sharedString, char character, int repetitions) {
-        this.sharedString = sharedString;
+
+    public PrinterChar(char character, int repetitions) {
         this.character = character;
         this.repetitions = repetitions;
     }
-    
+
     @Override
     public void run() {
         for (int i = 0; i < repetitions; i++) {
-            synchronized (sharedString) {
-                sharedString.append(character);
-            }
+            System.out.print(character);
             try {
                 Thread.sleep(10); 
             } catch (InterruptedException e) {
@@ -25,4 +21,3 @@ class CharacterPrinter implements Runnable {
         }
     }
 }
-
